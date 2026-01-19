@@ -4,3 +4,6 @@
 - [x] Initial commit and cloning
 - [x] Mengisi jawaban pada jawaban-a.md
 - [x] Mengerjakan bagian A nomor 1 dan 2
+
+### 23.31
+- [x] Branching
