@@ -1,0 +1,5 @@
+ALT: 100m, SPD: 10m/s
+ALT: 102m, SPD: 12m/s
+ALT: 105m, SPD: 15m/s
+ALT: 108m, SPD: 14m/s
+ALT: 110m, SPD: 11m/s
