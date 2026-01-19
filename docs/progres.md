@@ -6,7 +6,10 @@
 - [x] Mengerjakan bagian A nomor 1 dan 2
 
 ### 23.31
-- [x] Branching
+- [x] Branching jawaban-a
 
 ### 01.10
 - [x] jawaban-a DONE COMPLETED IZIN TIDUR DULU YAA 
+
+### 01.12
+- [x] Brancing jawaban-b (gajadi tidur belum ngantuk)
