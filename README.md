@@ -1,6 +1,131 @@
-# Take Home Test Departemen Robotics Software Control Aksantara ITB 2026
+# 🚁 Take Home Test - Robotics Software Control Aksantara ITB 2026
 
-## Ketentuan Umum
+[![Progress](https://img.shields.io/badge/Bagian%20A-✅%20Completed-success)](docs/jawaban-a.md)
+[![Progress](https://img.shields.io/badge/Bagian%20B-✅%20Completed-success)](docs/jawaban-b.md)
+[![Status](https://img.shields.io/badge/Status-Submitted-blue)]()
+
+---
+
+## 👨‍💻 Tentang Pengerjaan
+
+Repository ini berisi pengerjaan **Take Home Test (THT)** untuk Calon Anggota Departemen Robotics Software Control Aksantara ITB 2026. THT ini mencakup berbagai topik mulai dari dasar-dasar UAV, pemrograman C++, ROS2, computer vision, hingga pengembangan aplikasi web GCS.
+
+### 📊 Status Pengerjaan
+
+| Bagian | Status | Progres | Keterangan |
+|--------|--------|---------|------------|
+| **Bagian A** | ✅ Selesai | 6/6 | Dasar teori & persiapan lingkungan |
+| **Bagian B - Dasar Pemrograman** | ✅ Selesai | 4/4 | OOP, C++, Multithreading, Doxygen |
+| **Bagian B - Firmware** | ✅ Selesai | 3/3 | Firmware, RTOS, Serial Communication |
+| **Bagian B - ConCept** | ✅ Selesai | 6/6 | ROS2, Computer Vision, OpenCV |
+| **Bagian B - GCS** | ✅ Selesai | 5/5 | MAVLink, Docker, Web Development |
+| **Log Progres** | ✅ Selesai | - | Dokumentasi perjalanan pengerjaan |
+
+### 🎯 Highlights
+
+- ✨ **Bagian A**: Menyelesaikan setup development environment (Ubuntu WSL, ROS2 Humble, Mission Planner)
+- 🔧 **OOP & Design Patterns**: Implementasi refactoring kode prosedural ke OOP dengan Strategy Pattern
+- 🧵 **Multithreading**: Simulasi concurrent processing untuk telemetry & video streaming
+- 🤖 **ROS2**: Publisher-Subscriber system dan Service-Client dengan ISO 8601 time handling
+- 👁️ **Computer Vision**: Object tracking dengan OpenCV (masking, contours, bounding box)
+- 🌐 **Web GCS**: Full-stack web application dengan Docker containerization
+- 📚 **Doxygen**: Dokumentasi header file untuk pipeline parser dan vision to mavros
+
+### 📁 Struktur Repository
+
+```
+CaRSC26_<NIM>_THT/
+├── 📄 README.md                    # File ini - overview & progress tracker
+├── 📂 docs/                        # Dokumentasi jawaban
+│   ├── jawaban-a.md               # Jawaban Bagian A (teori & setup)
+│   ├── jawaban-b.md               # Jawaban Bagian B (technical skills)
+│   └── progres.md                 # Log progres pengerjaan
+├── 📂 lampiran_dari_source/        # File lampiran dari soal
+│   ├── pipeline_parser.hpp
+│   ├── vision_to_mavros.hpp
+│   ├── telemetry_processor.cpp
+│   └── telemetry_data.txt
+└── 📂 src/                         # Source code implementasi
+    ├── 📂 a/                       # Bagian A (1-6)
+    │   ├── 1/ ... 6/
+    └── 📂 b/                       # Bagian B
+        ├── 📂 daspro/              # Dasar Pemrograman
+        │   ├── nomor1/            # OOP concepts (class, object, inheritance, dll)
+        │   ├── nomor2/            # Refactored telemetry processor (OOP + Strategy)
+        │   ├── nomor3/            # Multithreading simulation
+        │   └── nomor4/            # Doxygen documentation
+        ├── 📂 firmware/            # Firmware & Embedded Systems
+        ├── 📂 concept/             # Control & Perception (ROS2, OpenCV)
+        └── 📂 gcs/                 # Ground Control Station (Web App)
+```
+
+### 🛠️ Tech Stack yang Digunakan
+
+**Development Environment:**
+- Ubuntu 22.04 LTS (WSL)
+- ROS2 Humble
+- Docker & Docker Compose
+
+**Programming Languages:**
+- C++ (OOP, multithreading, ROS2 nodes)
+- Python (web backend, OpenCV)
+
+**Frameworks & Libraries:**
+- OpenCV (Computer Vision)
+- ROS2 (Robotics middleware)
+- FastAPI/Flask (Backend)
+- React/Svelte (Frontend)
+
+**Tools:**
+- Git & GitHub (Version control)
+- QGroundControl/Mission Planner (GCS)
+- Doxygen (Documentation)
+
+### 📝 Dokumentasi
+
+Untuk penjelasan detail mengenai setiap soal dan solusinya, silakan lihat:
+- 📖 [Jawaban Bagian A](docs/jawaban-a.md) - Dasar teori, setup environment, algoritma
+- 📖 [Jawaban Bagian B](docs/jawaban-b.md) - Technical implementation & code
+- 📓 [Log Progres](docs/progres.md) - Perjalanan pengerjaan, tantangan, & solusi
+
+### 🚀 Quick Start
+
+Untuk menjalankan kode-kode yang ada di repository ini:
+
+```bash
+# Clone repository
+git clone <repository-url>
+cd CaRSC26_<NIM>_THT
+
+# Untuk C++ code (compile)
+cd src/b/daspro/nomor2
+g++ -o app telemetry_processor_refact.cpp
+./app
+
+# Untuk ROS2 workspace
+cd src/b/concept/<workspace>
+colcon build
+source install/setup.bash
+ros2 run yapping clock
+
+# Untuk web application
+cd src/b/gcs
+docker-compose up
+```
+
+### 💡 Key Learnings
+
+Beberapa hal penting yang dipelajari selama pengerjaan THT ini:
+1. **OOP Design Patterns** - Memahami kapan dan bagaimana menerapkan design patterns dalam real-world scenarios
+2. **ROS2 Architecture** - Publisher-Subscriber pattern, Services, dan message passing
+3. **Computer Vision Pipeline** - Image processing, color masking, contour detection, object tracking
+4. **Concurrent Programming** - Thread management dan synchronization
+5. **Full-stack Development** - Integration antara frontend, backend, database, dan containerization
+6. **UAV Systems** - Memahami ekosistem UAV dari firmware hingga GCS
+
+---
+
+## 📋 Ketentuan Umum THT
 
 ### Soal
 
