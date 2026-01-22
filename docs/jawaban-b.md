@@ -58,3 +58,39 @@ Multithreading itu simpelnya adalah kemampuan CPU untuk mengerjakan beberapa tug
 Untuk simulasi kode multithreading sudah saya siapkan dan terletak di folder /src/b/daspro/nomor3/multithreading_sim.cpp
 
 ## 4. Header file & DOXYGEN
+### i. Perbedaan cara pendefinisian kedua header file (this number is answered by AI, btw >w<>)
+Berdasarkan kedua file yang diberikan (vision_to_mavros.hpp dan pipeline_parser.hpp), terdapat beberapa perbedaan fundamental dalam cara pendefinisiannya, mulai dari preprocessor directives hingga struktur arsitektur kodenya.
+
+Berikut adalah rincian perbedaannya:
+A. Include Guards (Pelindung Header)
+    vision_to_mavros.hpp: Menggunakan Standard Include Guards (#ifndef VISION_TO_MAVROS_H, #define ..., #endif).
+        Karakteristik: Ini adalah cara standar C/C++ yang dijamin portabel di semua compiler. Namun, rentan terhadap name collision jika ada macro dengan nama yang sama di file lain.
+    pipeline_parser.hpp: Menggunakan #pragma once.
+        Karakteristik: Ini adalah fitur non-standar (meski didukung luas oleh compiler modern) yang lebih ringkas. Compiler hanya perlu memproses file sekali, yang berpotensi mempercepat waktu kompilasi (kaitan dengan efisiensi kompilasi).
+B. Namespace (Ruang Lingkup Nama)
+    vision_to_mavros.hpp: Mendefinisikan kelas langsung di Global Namespace.
+        Dampak: Kelas VisionToMavros dapat diakses langsung tanpa prefix. Ini kurang disarankan dalam proyek besar karena risiko tabrakan nama (naming conflict) dengan library lain sangat tinggi.
+    pipeline_parser.hpp: Membungkus definisi di dalam Namespace uav_vision.
+        Dampak: Ini menunjukkan praktik enkapsulasi yang lebih baik. Untuk mengakses kelas, pengguna harus menggunakan uav_vision::PipelineParser. Ini memodularisasi kode dan mencegah polusi pada global namespace.
+C. Ketergantungan (Dependencies) & Arsitektur
+    vision_to_mavros.hpp: Sangat bergantung pada Framework Eksternal (ROS 2).
+        Kelas ini mewarisi (inheritance) dari rclcpp::Node. Ini menjadikannya "Active Object" yang terikat erat dengan sistem ROS. Header yang di-include sangat spesifik pada implementasi robotika.
+    pipeline_parser.hpp: Bergantung pada Standard Library (STL).
+        Kelas ini bersifat standalone (berdiri sendiri) dan tidak mewarisi dari apapun. Ini adalah utility class murni C++ yang lebih portabel dan mudah diuji (unit testing) karena minim ketergantungan eksternal.
+D. Kaitannya dengan Soal Nomor 2 (Asumsi)
+Jika soal nomor 2 membahas tentang Modularitas, Manajemen Memori/Kompilasi, atau Best Practice C++, maka:
+    Penggunaan #pragma once dan namespace pada pipeline_parser.hpp adalah contoh penerapan struktur C++ modern yang lebih efisien dan aman.
+    Sebaliknya, vision_to_mavros.hpp menunjukkan implementasi spesifik aplikasi (robotika) yang mengorbankan portabilitas demi fungsionalitas framework.
+
+### ii. Dokumemtasi DOXYGEN
+src/b/daspro/nomor4/*
+
+# Firmware dan Sistem Benam
+### i. Definisi dasar firmware
+Firmware ibarat "insting" dasar yang tertanam permanen di chip untuk mengontrol fisik hardware secara langsung, berbeda dengan software biasa yang berjalan di atas OS untuk interaksi pengguna. Dalam UAV, firmware berperan sebagai otak utama pada Flight Controller (seperti ArduPilot) yang menerjemahkan data sensor mentah menjadi perintah motor agar drone bisa terbang stabil dan tidak jatuh.
+
+### ii.  Konsep Real-Time Operating System
+RTOS (Real-Time Operating System) adalah sistem operasi yang menjamin setiap tugas dieksekusi tepat waktu tanpa penundaan (no lag), dengan memprioritaskan tugas yang paling kritis. Ini wajib ada di UAV karena proses penyeimbangan pesawat harus terjadi ratusan kali per detik; jika sistem terlambat merespons sensor walau hanya sekian milidetik, drone bisa kehilangan kendali dan jatuh.
+
+### iii. Konsep dasar komunikasi serial 
+Ini adalah protokol "bahasa" komunikasi antar komponen: UART biasanya dipakai untuk koneksi GPS dan Telemetri, I2C untuk sensor hemat kabel seperti kompas, dan SPI untuk transfer data super cepat seperti sensor gerak (IMU). Ketiganya bekerja bersamaan agar Flight Controller bisa mengumpulkan semua data lingkungan dan mengendalikan periferal secara sinkron.

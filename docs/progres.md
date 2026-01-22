@@ -17,3 +17,7 @@
 
 ### 02.36
 - [x] Mengerjakan bagian B nomor 1,2,3
+
+## Day 3 - 2026-22-01
+### 23.55
+- [x] Bruh imma speedrun ts
